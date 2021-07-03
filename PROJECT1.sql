@@ -1,0 +1,15 @@
+create DATABASE DB;
+USE DB;
+CREATE TABLE TEST_TABLE(NUM NUMERIC, STR VARCHAR(20), DT DATE); 
+DESC TEST_TABLE;
+insert INTO TEST_TABLE VALUES(20, 'BVRITH', '2018-02-12');
+SELECT * FROM TEST_TABLE;
+insert INTO TEST_TABLE VALUES(NULL, 'BVRITH', '2018-02-12');
+SELECT * FROM TEST_TABLE;
+SELECT * FROM TEST_TABLE WHERE TEST_TABLE.NUM = 20;
+create table sailors(SID numeric(3) primary key, sname varchar(30), rating numeric(3), age numeric(4,2), check(rating >= 1 and rating <=10));
+desc sailors;
+create table boats(BID numeric(3) primary key, bname varchar(20), bcolor varchar(20));
+desc boats;
+create table reserves(SID numeric(3), bid numeric(3), day1 date, primary key(SID, BID, day1), foreign key(sid) references sailors, foreign key(BID) references boats); 
+desc reserves;
